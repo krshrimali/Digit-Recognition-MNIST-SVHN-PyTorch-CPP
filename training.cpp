@@ -25,7 +25,6 @@ struct Net: torch::nn::Module {
     torch::Tensor forward(torch::Tensor x) {
         // std::cout << x.size(0) << ", " << 784 << std::endl;
         x = torch::relu(torch::max_pool2d(conv1->forward(x), 2));
-        std::cout << "Done" << std::endl;
         x = torch::relu(torch::max_pool2d(conv2_drop->forward(conv2->forward(x)), 2));
         x = x.view({-1, 320});
         // x = x::view(-1, 320);
@@ -55,7 +54,7 @@ int main() {
 
 	// Create multi-threaded data loader for MNIST data
 	auto data_loader = torch::data::make_data_loader<torch::data::samplers::SequentialSampler>(
-			std::move(torch::data::datasets::MNIST("../data").map(torch::data::transforms::Normalize<>(0.13707, 0.3081)).map(
+			std::move(torch::data::datasets::MNIST("../../data").map(torch::data::transforms::Normalize<>(0.13707, 0.3081)).map(
 				torch::data::transforms::Stack<>())), 64);
 	torch::optim::SGD optimizer(net->parameters(), 0.01); // Learning Rate 0.01
 
