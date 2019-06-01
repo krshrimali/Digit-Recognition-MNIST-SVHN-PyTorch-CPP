@@ -12,3 +12,12 @@
 
 1. Incorrect data path. Check your data directory of MNIST dataset.
 2. Make sure while using `cmake`: `cmake -DCMAKE_PREFIX_PATH=/absolute_path_to_libtorch/` - it should be absolute path to `libtorch.`
+
+## Process
+
+Note: Prefer using stable version of libtorch. This code doesn't use GPU, as I don't have the resources to test it right now.
+1. `mkdir build`
+2. `cd build`
+3. cmake: `cmake -DCMAKE_PREFIX_PATH=/home/user/path/to/libtorch/ ..`
+4. `make`
+5. `./example`
