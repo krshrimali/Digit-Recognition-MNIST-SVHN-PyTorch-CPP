@@ -1,4 +1,4 @@
-# Digit-Recognition-MNIST-SHM
+# Digit-Recognition-MNIST-SVHN
 
 ## Implementing CNN for Digit Recognition (MNIST and SVHN dataset) using PyTorch C++ API 
 
