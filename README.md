@@ -1,5 +1,9 @@
 # Digit-Recognition-MNIST-SVHN
 
+## Blog
+
+The blog post on using VGG-Net on MNIST Dataset using PyTorch C++ API: https://krshrimali.github.io/PyTorch-C++-API/.
+
 ## Implementing CNN for Digit Recognition (MNIST and SVHN dataset) using PyTorch C++ API 
 
 **Branch - Version 1**
