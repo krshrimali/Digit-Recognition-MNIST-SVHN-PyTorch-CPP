@@ -58,7 +58,6 @@ struct Net: torch::nn::Module {
         x = torch::relu(conv5_1->forward(x));
         x = torch::relu(conv5_2->forward(x));
         x = torch::relu(conv5_3->forward(x));
-        x = torch::max_pool2d(x, 2);
 
         x = x.view({-1, 130});
 
@@ -90,8 +89,9 @@ int main() {
 	auto net = std::make_shared<Net>();
 
 	// Create multi-threaded data loader for MNIST data
+	// Make sure to enter absolute path to the data directory for no errors later on
 	auto data_loader = torch::data::make_data_loader<torch::data::samplers::SequentialSampler>(
-			std::move(torch::data::datasets::MNIST("../../data").map(torch::data::transforms::Normalize<>(0.13707, 0.3081)).map(
+			std::move(torch::data::datasets::MNIST("/Users/krshrimali/Downnloads/mnist_data").map(torch::data::transforms::Normalize<>(0.13707, 0.3081)).map(
 				torch::data::transforms::Stack<>())), 64);
 	torch::optim::SGD optimizer(net->parameters(), 0.01); // Learning Rate 0.01
 
